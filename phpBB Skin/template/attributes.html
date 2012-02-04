@@ -1,0 +1,56 @@
+<!-- IF not S_PRIVMSGS && S_QTE_SELECT -->
+
+	<!-- IF S_VIEWTOPIC -->
+	<form method="post" action="{S_QTE_FORM}">
+		<fieldset class="attribute">
+		<label>{L_QTE_ATTRIBUTES}:</label>
+			<select name="attr_id">
+				<option style="padding-left:0px; font-weight:bold;" value="-1">{L_QTE_SELECT}</option>
+				<!-- BEGIN row -->
+				<option value="{row.QTE_ID}"<!-- IF row.IS_SELECTED --> selected="selected"<!-- ENDIF -->>{row.QTE_NAME}<!-- IF row.S_QTE_DESC --> [{row.QTE_DESC}]<!-- ENDIF --></option>
+				<!-- END row -->
+			</select>
+		<input class="btn small" type="submit" value="{L_GO}" />
+		</fieldset>
+	</form>
+	<!-- ELSEIF S_VIEWFORUM -->
+	<!-- <label>{L_QTE_SORT}:</label>
+	<select name="attr_id">
+		<option style="padding-left:0px; font-weight:bold;" value="-1">{L_QTE_ALL}</option>
+		<!-- BEGIN row -->
+		<option value="{row.QTE_ID}"<!-- IF row.IS_SELECTED --> selected="selected"<!-- ENDIF -->>{row.QTE_NAME}<!-- IF row.S_QTE_DESC --> [{row.QTE_DESC}]<!-- ENDIF --></option>
+		<!-- END row -->
+	</select> -->
+	<!-- ELSEIF S_CAN_SYNC && not S_MERGE_SELECT -->
+	<fieldset class="display-actions">
+	<select name="attr_id">
+		<option style="padding-left:0px; font-weight:bold;" value="-1">{L_QTE_ATTRIBUTE_DESIRED}</option>
+		<!-- BEGIN row -->
+		<option value="{row.QTE_ID}"<!-- IF row.IS_SELECTED --> selected="selected"<!-- ENDIF -->>{row.QTE_NAME}<!-- IF row.S_QTE_DESC --> [{row.QTE_DESC}]<!-- ENDIF --></option>
+		<!-- END row -->
+	</select>
+	<input class="btn small" name="attribute" type="submit" value="{L_SUBMIT}" />
+	</fieldset>
+	<!-- ELSEIF S_POSTING || S_SPLIT_VIEW -->
+	<dl>
+		<dt><label for="attribute">{L_QTE_ATTRIBUTE}:</label></dt>
+		<dd><select name="attr_id" id="attribute">
+			<option value="-1" style="font-weight:bold;">{L_QTE_SELECT}</option>
+			<!-- BEGIN row -->
+			<option value="{row.QTE_ID}"<!-- IF row.IS_SELECTED --> selected="selected"<!-- ENDIF -->>{row.QTE_NAME}<!-- IF row.S_QTE_DESC --> [{row.QTE_DESC}]<!-- ENDIF --></option>
+			<!-- END row -->
+		</select></dd>
+	</dl>
+	<!-- ELSEIF S_IN_SEARCH -->
+	<!--<dl>
+		<dt><label for="attribute">{L_QTE_ATTRIBUTE_SEARCH}:</label><br /><span>{L_QTE_ATTRIBUTE_SEARCH_EXPLAIN}</span></dt>
+		<dd><select name="attr_id" id="attribute">
+			<option style="padding-left:0px; font-weight:bold;" value="0">{L_QTE_ATTRIBUTE_SELECT}</option>
+			<!-- BEGIN row -->
+			<option value="{row.QTE_ID}">{row.QTE_NAME}<!-- IF row.S_QTE_DESC --> [{row.QTE_DESC}]<!-- ENDIF --></option>
+			<!-- END row -->
+		</select></dd>
+	</dl>-->
+	<!-- ENDIF -->
+
+<!-- ENDIF -->

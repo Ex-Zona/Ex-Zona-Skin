@@ -1,0 +1,51 @@
+.label {
+  font: 9px tahoma,helvetica,arial,sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background-color: #bfbfbf;
+  background-image: url("{T_THEME_PATH}/images/label_highlight.png");
+  background-position: 0 -1px;
+  background-repeat: repeat-x;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  padding: 0 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+.label.important {
+  background-color: #c43c35;
+}
+.label.fail {
+  background-color: #c43c35;
+}
+.label.negado {
+  background-color: #c43c35;
+}
+.label.warning {
+  background-color: #f89406;
+}
+.label.importante {
+  background-color: #f89406;
+}
+.label.success {
+  background-color: #46a546;
+}
+.label.tema_oficial {
+  background-color: #46a546;
+}
+.label.aceptado {
+  background-color: #46a546;
+}
+.label.notice {
+  background-color: #62cffc;
+}
+.label.resuelto {
+  background-color: #62cffc;
+}
