@@ -1,16 +1,14 @@
 /*  phpBB 3.0 Style Sheet
     --------------------------------------------------------------
-	phpBB style name: modestus
+	phpBB style name: Ex-Zona
 	Based on style:   prosilver (this is the default phpBB3 style)
 	Original author:  Tom Beddard ( http://www.subBlue.com/ )
-	Modified by: RocketTheme, LLC (C) Copyright. All rights reserved.    
+	Modified by:      Repflez (Actual Modification), RocketTheme, LLC (Original Modification) (C) Copyright. All rights reserved.     
 	
 	Copyright 2006 phpBB Group ( http://www.phpbb.com/ )
     --------------------------------------------------------------
 */
 
-/* Sigs... lol */
-@import url("sigs.css");
 /* Normal phpBB stuff */
 @import url("common.css");
 @import url("links.css");
@@ -25,10 +23,7 @@
 /* Extra CSS */
 @import url("labels.css");
 @import url("exzbuttons.css");
-@import url("warning.css");
 /* MODs CSS */
-@import url("prime_trash_bin.css");
-@import url("thanks.css");
 /* Master Final CSS */
 @import url("master_final_exz.css");
 /* Custom Backgrounds CSS */
