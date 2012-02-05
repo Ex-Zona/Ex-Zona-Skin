@@ -2,7 +2,7 @@
 <h2><a href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a></h2>
 <!-- IF not S_IS_BOT -->
 <!-- IF not S_IS_LOCKED -->
-<g:plusone size="medium"></g:plusone>&nbsp;<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="ForosExZona" data-lang="es">Tweet</a>&nbsp;<iframe src="http://www.facebook.com/plugins/like.php?href={BOARD_URL}viewtopic.php%3Ff%3D{S_FORUM_ID}%26t%3D{S_TOPIC_ID}&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:450px; height:25px"></iframe>
+<g:plusone size="medium"></g:plusone>&nbsp;<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="ForosExZona" data-lang="en">Tweet</a>&nbsp;<iframe src="http://www.facebook.com/plugins/like.php?href={BOARD_URL}viewtopic.php%3Ff%3D{S_FORUM_ID}%26t%3D{S_TOPIC_ID}&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:450px; height:25px"></iframe>
 <!-- ENDIF -->
 <!-- ENDIF -->
 <!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
@@ -33,7 +33,7 @@
 
 	<div class="buttons">
 	<!-- IF not S_IS_BOT and S_DISPLAY_REPLY_INFO -->
-		<!--<div class="<!-- IF S_IS_LOCKED -->locked-icon<!-- ELSE -->reply-icon<!-- ENDIF -->">--><a href="{U_POST_REPLY_TOPIC}" title="<!-- IF S_IS_LOCKED -->{L_TOPIC_LOCKED}<!-- ELSE -->{L_POST_REPLY}<!-- ENDIF -->" class="btn small<!-- IF S_IS_LOCKED --> danger<!-- ENDIF -->" style="font-size: 1.1em !important; margin-right: 7px;"><span></span><!-- IF S_IS_LOCKED -->Tema cerrado<!-- ELSE -->Responder<!-- ENDIF --></a><!--</div>-->
+		<a href="{U_POST_REPLY_TOPIC}" title="<!-- IF S_IS_LOCKED -->{L_TOPIC_LOCKED}<!-- ELSE -->{L_POST_REPLY}<!-- ENDIF -->" class="btn small<!-- IF S_IS_LOCKED --> danger<!-- ENDIF -->" style="font-size: 1.1em !important; margin-right: 7px;"><span></span><!-- IF S_IS_LOCKED -->{L_TOPIC_LOCKED}<!-- ELSE -->{L_POST_REPLY}<!-- ENDIF --></a>
 	<!-- ENDIF -->
 	</div>
 
@@ -58,22 +58,6 @@
 
 </div>
 <div class="clear"></div>
-
-<!-- IF S_TOPIC_DELETED -->
-<!--
-	<div id="p0" class="post bg2 deleted_topic">
-		<div class="inner"><span class="corners-top"><span></span></span>
-		<div class="postbody">
-			<h3 class="first">{L_PRIME_TOPIC_DELETED_MSG}</h3>
-			<div class="ignore">
-				{DELETED_MSG}
-			</div>
-		</div>
-		<div class="back2top"><a href="#wrap" class="top" title="{L_BACK_TO_TOP}">{L_BACK_TO_TOP}</a></div>
-		<span class="corners-bottom"><span></span></span></div>
-	</div>
--->
-<!-- ENDIF -->
 
 <!-- IF S_HAS_POLL -->
 
@@ -132,7 +116,7 @@
 <!-- BEGIN postrow -->
 	<!-- IF postrow.S_FIRST_UNREAD --><a id="unread"></a><!-- ENDIF -->
 	<div class="post_username<!-- IF postrow.S_ONLINE --> online<!-- ENDIF -->">{postrow.POST_AUTHOR}</div>
-	<div id="p{postrow.POST_ID}" class="post<!-- IF postrow.S_UNREAD_POST --> unreadpost<!-- ENDIF --><!-- IF postrow.S_POST_REPORTED --> reported<!-- ENDIF --><!-- IF postrow.S_DELETED --><!-- ENDIF -->">
+	<div id="p{postrow.POST_ID}" class="post<!-- IF postrow.S_UNREAD_POST --> unreadpost<!-- ENDIF --><!-- IF postrow.S_POST_REPORTED --> reported<!-- ENDIF -->">
 		<div class="inner">
 
 		<div class="postbody">
@@ -149,16 +133,11 @@
 					<!-- IF postrow.U_WARN --><li class="warn-icon"><a href="{postrow.U_WARN}" title="{L_WARN_USER}"><span>{L_WARN_USER}</span></a></li><!-- ENDIF -->
 					<!-- IF postrow.U_INFO --><li class="info-icon"><a href="{postrow.U_INFO}" title="{L_INFORMATION}"><span>{L_INFORMATION}</span></a></li><!-- ENDIF -->
 					<!-- IF postrow.U_QUOTE --><li class="quote-icon"><a href="{postrow.U_QUOTE}" title="{L_REPLY_WITH_QUOTE}"><span>{L_REPLY_WITH_QUOTE}</span></a></li><!-- ENDIF -->
-					
-					<!-- IF  not postrow.S_FIRST_POST_ONLY or (not START and postrow.S_ROW_COUNT == 0) -->
-						<!-- IF not postrow.S_GLOBAL_POST_THANKS and not postrow.S_POST_ANONYMOUS and postrow.S_FORUM_THANKS and S_USER_LOGGED_IN and not postrow.S_IS_OWN_POST and (not postrow.S_ALREADY_THANKED or postrow.S_REMOVE_THANKS) --><!-- IF not postrow.S_DELETED --><li class="{postrow.THANKS_IMG}"><a href="{postrow.THANKS_LINK}" title="{postrow.THANK_ALT}{postrow.POST_AUTHOR}"></a></li><!-- ENDIF --><!-- ENDIF -->				
-					<!-- ENDIF -->
-					
 				</ul>
 			<!-- ENDIF -->
 		<!-- ENDIF -->
 
-			<p class="author"><!-- IF postrow.S_DELETED --><span class="label important">Eliminado</span><!-- ELSE --><!-- IF S_IS_BOT -->{postrow.MINI_POST_IMG}<!-- ELSE --><a href="{postrow.U_MINI_POST}">{postrow.MINI_POST_IMG}</a><!-- ENDIF --><!-- ENDIF -->&nbsp;Posteado el {postrow.POST_DATE} </p>
+			<p class="author"><!-- IF S_IS_BOT -->{postrow.MINI_POST_IMG}<!-- ELSE --><a href="{postrow.U_MINI_POST}">{postrow.MINI_POST_IMG}</a><!-- ENDIF -->&nbsp;Posted the {postrow.POST_DATE} </p>
 
 
 
@@ -197,15 +176,12 @@
 			<dt>
 				<!-- IF not S_IS_BOT and (postrow.S_ONLINE or postrow.S_FRIEND) -->
 					<!-- IF postrow.S_ONLINE -->
-						<span class="label success">En L&iacute;nea</span>
+						<span class="label success">Online</span>
 					<!-- ENDIF -->
 					<!-- IF postrow.S_FRIEND -->
-						<span class="label warning">Amigo</span>
+						<span class="label warning">Friend</span>
 					<!-- ENDIF -->
 					<br /><br />
-				<!-- ENDIF -->
-				<!-- IF postrow.S_PROFILE_USERTEXT -->
-				{postrow.PROFILE_USERTEXT_VALUE}<br /><br />
 				<!-- ENDIF -->
 				<!-- IF postrow.POSTER_AVATAR -->
 					<!-- IF postrow.U_POST_AUTHOR --><a href="{postrow.U_POST_AUTHOR}">{postrow.POSTER_AVATAR}</a><!-- ELSE -->{postrow.POSTER_AVATAR}<!-- ENDIF --><br /><br />
@@ -219,11 +195,6 @@
 		<!-- IF postrow.POSTER_POSTS != '' --><dd>{postrow.POSTER_POSTS} {L_POSTS}</dd><br /><!-- ENDIF -->
 		<!--<!-- IF postrow.POSTER_JOINED --><dd><strong>{L_JOINED}:</strong> {postrow.POSTER_JOINED}</dd><!-- ENDIF -->-->
 		<!-- IF postrow.POSTER_FROM --><dd><strong>{L_LOCATION}:</strong> {postrow.POSTER_FROM}</dd><!-- ENDIF -->
-		
-		<!-- IF not postrow.S_POST_ANONYMOUS and postrow.THANKS_COUNTERS_VIEW -->
-			<dd><strong>{L_GIVEN}:</strong><!-- IF postrow.POSTER_GIVE_COUNT < 1 --> {postrow.POSTER_GIVE_COUNT} {L_THANK}<!-- ELSEIF postrow.POSTER_GIVE_COUNT > 1 --> <a href="{postrow.POSTER_GIVE_COUNT_LINK}">{postrow.POSTER_GIVE_COUNT}</a> {L_THANKS}<!-- ELSE --> <a href="{postrow.POSTER_GIVE_COUNT_LINK}">{postrow.POSTER_GIVE_COUNT}</a> {L_THANK}<!-- ENDIF --></dd>
-			<dd><strong>{L_RECEIVED}:</strong><!-- IF postrow.POSTER_RECEIVE_COUNT < 1 --> {postrow.POSTER_RECEIVE_COUNT} {L_THANK}<!-- ELSEIF postrow.POSTER_RECEIVE_COUNT > 1 --> <a href="{postrow.POSTER_RECEIVE_COUNT_LINK}">{postrow.POSTER_RECEIVE_COUNT}</a> {L_THANKS}<!-- ELSE --> <a href="{postrow.POSTER_RECEIVE_COUNT_LINK}">{postrow.POSTER_RECEIVE_COUNT}</a> {L_THANK}<!-- ENDIF --></dd>
-		<!-- ENDIF -->
 
 <!--
 		<!-- IF postrow.S_PROFILE_FIELD1 -->
@@ -255,33 +226,6 @@
 		</dl>
 	<!-- ENDIF -->
 
-		<div style="clear:both;">
-		<!-- IF postrow.THANKS and postrow.THANKS_POSTLIST_VIEW -->
-			<!-- IF not postrow.S_POST_ANONYMOUS and not S_IS_BOT and postrow.S_MOD_THANKS -->
-			<ul class="profile-icons" style="float:left"><li class="delete-icon"><a href="{postrow.U_CLEAR_LIST_THANKS_POST}" title="{L_CLEAR_LIST_THANKS}"><span>{L_CLEAR_LIST_THANKS}</span></a></li></ul>
-			<!-- ENDIF -->
-			<div class="content">
-				<!-- IF not postrow.S_POST_ANONYMOUS and not S_IS_BOT-->
-				<dl class="postbody small">
-					<dt>{postrow.THANK_TEXT}{postrow.POST_AUTHOR_FULL}{postrow.THANK_TEXT_2}</dt>
-					<dd>{postrow.THANKS}</dd>
-				</dl>
-				<!-- ENDIF -->	
-			</div>
-		<!-- ENDIF -->
-		<!-- IF postrow.S_THANKS_POST_REPUT_VIEW and postrow.POST_REPUT and not postrow.S_POST_ANONYMOUS and not S_IS_BOT -->
-			<div class="content">
-				<dl class="postbody">
-					<dt class="small"><strong>{L_REPUT}:</strong>&nbsp;{postrow.POST_REPUT}</dt>
-					<dd>
-					<!-- IF postrow.S_THANKS_REPUT_GRAPHIC -->
-					<div style="width: {postrow.THANKS_REPUT_GRAPHIC_WIDTH}; height: {postrow.THANKS_REPUT_HEIGHT}; background: URL({postrow.THANKS_REPUT_IMAGE_BACK});"><div style="height: {postrow.THANKS_REPUT_HEIGHT}; width: {postrow.POST_REPUT}; background: URL({postrow.THANKS_REPUT_IMAGE});"></div></div>&nbsp;
-					<!-- ENDIF -->
-					</dd>
-				</dl>
-			</div>
-		<!-- ENDIF -->	
-		</div>
 		<div class="back2top"><a href="#wrap" class="top" title="{L_BACK_TO_TOP}">{L_BACK_TO_TOP}</a></div>
 
 		</div>
@@ -311,7 +255,7 @@
 <div class="topic-actions">
 	<div class="buttons">
 	<!-- IF not S_IS_BOT and S_DISPLAY_REPLY_INFO -->
-		<!--<div class="<!-- IF S_IS_LOCKED -->locked-icon<!-- ELSE -->reply-icon<!-- ENDIF -->">--><a href="{U_POST_REPLY_TOPIC}" title="<!-- IF S_IS_LOCKED -->{L_TOPIC_LOCKED}<!-- ELSE -->{L_POST_REPLY}<!-- ENDIF -->" class="btn small<!-- IF S_IS_LOCKED --> danger<!-- ENDIF -->" style="font-size: 1.1em !important; margin-right: 7px;"><span></span><!-- IF S_IS_LOCKED -->Tema cerrado<!-- ELSE -->Responder<!-- ENDIF --></a><!--</div>-->
+		<!--<div class="<!-- IF S_IS_LOCKED -->locked-icon<!-- ELSE -->reply-icon<!-- ENDIF -->">--><a href="{U_POST_REPLY_TOPIC}" title="<!-- IF S_IS_LOCKED -->{L_TOPIC_LOCKED}<!-- ELSE -->{L_POST_REPLY}<!-- ENDIF -->" class="btn small<!-- IF S_IS_LOCKED --> danger<!-- ENDIF -->" style="font-size: 1.1em !important; margin-right: 7px;"><span></span><!-- IF S_IS_LOCKED -->{L_TOPIC_LOCKED}<!-- ELSE -->{L_POST_REPLY}<!-- ENDIF --></a><!--</div>-->
 	<!-- ENDIF -->
 	</div>
 
@@ -323,7 +267,6 @@
 	<!-- ENDIF -->
 </div>
 
-<!-- INCLUDE attributes.html -->
 <!-- INCLUDE jumpbox.html -->
 
 <!-- IF S_TOPIC_MOD -->

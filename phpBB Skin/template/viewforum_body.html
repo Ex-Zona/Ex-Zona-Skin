@@ -125,67 +125,26 @@
 		<div class="inner">
 		<ul class="topiclist">
 			<li class="header">
-				<dl class="<!-- BEGIN reput --><!-- IF topicrow.reput.S_THANKS_TOPIC_REPUT_VIEW_COLUMN and not S_IS_BOT -->thanks<!-- ELSE -->icon<!-- ENDIF --><!-- END reput -->">
+				<dl class="icon">
 					<dt><!-- IF S_DISPLAY_ACTIVE -->{L_ACTIVE_TOPICS}<!-- ELSEIF topicrow.S_TOPIC_TYPE_SWITCH and (topicrow.S_POST_ANNOUNCE or topicrow.S_POST_GLOBAL) -->{L_ANNOUNCEMENTS}<!-- ELSE -->{L_TOPICS}<!-- ENDIF --></dt>
 				</dl>
 			</li>
 		</ul>
 		<ul class="topiclist topics">
 	<!-- ENDIF -->
-	<!-- IF topicrow.S_DELETED -->
-		<li class="row<!-- IF topicrow.S_POST_GLOBAL --> global-announce<!-- ENDIF --><!-- IF topicrow.S_POST_ANNOUNCE --> announce<!-- ENDIF --><!-- IF topicrow.S_POST_STICKY --> sticky<!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED --> reported<!-- ENDIF --> <!-- IF topicrow.S_UNREAD_TOPIC --> unread<!-- ENDIF --> deleted_topic">
-			<dl class="<!-- BEGIN reput --><!-- IF topicrow.reput.S_THANKS_TOPIC_REPUT_VIEW_COLUMN and not S_IS_BOT -->thanks<!-- ENDIF --><!-- END reput -->">
-				<dt <!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> style="background-image: url({T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}); background-repeat: no-repeat; background-position: 98% 50%;"<!-- ENDIF --> title="{topicrow.TOPIC_FOLDER_IMG_ALT}" class="internal<!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> topic_icon<!-- ENDIF -->"><!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><!-- IF topicrow.S_TOPIC_ATTR -->{topicrow.TOPIC_ATTRIBUTE} <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle <!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> topic_icon<!-- ENDIF -->">{topicrow.TOPIC_TITLE}</a>
-					<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}">{topicrow.UNAPPROVED_IMG}</a> <!-- ENDIF -->
-					<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}">{REPORTED_IMG}</a><!-- ENDIF --><br />
-					<!-- IF topicrow.PAGINATION --><strong class="pagination"><span>{topicrow.PAGINATION}</span></strong><!-- ENDIF -->
-					<!-- IF topicrow.ATTACH_ICON_IMG -->{topicrow.ATTACH_ICON_IMG} <!-- ENDIF --><span class="topic-data">Iniciado por {topicrow.TOPIC_AUTHOR_FULL}, {topicrow.FIRST_POST_TIME}</span>
-					{topicrow.DELETED_MSG}
-				</dt>
-				<dd class="views">{topicrow.VIEWS} <dfn>{L_VIEWS}</dfn></dd>
-				<dd class="lastpost" style="padding-left: 0px;"><!-- IF not S_IS_BOT --><a href="{forumrow.U_LAST_POST}" class="lastpost_img">{LAST_POST_IMG}</a> <!-- ENDIF --><span><dfn>{L_LAST_POST} </dfn>{L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}
-					<br />{topicrow.LAST_POST_TIME}</span>
-				</dd>
-			</dl>
-		</li>
-	<!-- ELSE -->
 		<li class="row<!-- IF topicrow.S_POST_GLOBAL --> global-announce<!-- ENDIF --><!-- IF topicrow.S_POST_ANNOUNCE --> announce<!-- ENDIF --><!-- IF topicrow.S_POST_STICKY --> sticky<!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED --> reported<!-- ENDIF --><!-- IF topicrow.S_UNREAD_TOPIC --> unread<!-- ENDIF -->">
-			<dl class="<!-- BEGIN reput --><!-- IF topicrow.reput.S_THANKS_TOPIC_REPUT_VIEW_COLUMN and not S_IS_BOT -->thanks<!-- ELSE -->icon<!-- ENDIF --><!-- END reput -->">
-				<dt <!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> style="background-image: url({T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}); background-repeat: no-repeat; background-position: 98% 50%;"<!-- ENDIF --> title="{topicrow.TOPIC_FOLDER_IMG_ALT}" class="internal<!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> topic_icon<!-- ENDIF -->"><!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><!-- IF topicrow.S_TOPIC_ATTR -->{topicrow.TOPIC_ATTRIBUTE} <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle <!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> topic_icon<!-- ENDIF -->">{topicrow.TOPIC_TITLE}</a>
+			<dl class="icon">
+				<dt <!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> style="background-image: url({T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}); background-repeat: no-repeat; background-position: 98% 50%;"<!-- ENDIF --> title="{topicrow.TOPIC_FOLDER_IMG_ALT}" class="internal<!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> topic_icon<!-- ENDIF -->"><!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle <!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> topic_icon<!-- ENDIF -->">{topicrow.TOPIC_TITLE}</a>
 					<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}">{topicrow.UNAPPROVED_IMG}</a> <!-- ENDIF -->
 					<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}">{REPORTED_IMG}</a><!-- ENDIF --><br />
-					<!-- IF topicrow.ATTACH_ICON_IMG -->{topicrow.ATTACH_ICON_IMG} <!-- ENDIF --><span class="topic-data">Iniciado por {topicrow.TOPIC_AUTHOR_FULL}, {topicrow.FIRST_POST_TIME}</span>&nbsp;<!-- IF topicrow.PAGINATION --><strong class="pagination"><span>{topicrow.PAGINATION}</span></strong><!-- ENDIF -->
-					<!-- BEGIN reput -->
-						<!-- IF topicrow.reput.S_THANKS_TOPIC_REPUT_VIEW and topicrow.reput.TOPIC_REPUT and not S_IS_BOT  and not topicrow.reput.S_THANKS_TOPIC_REPUT_VIEW_COLUMN -->
-					<span style="display: block;">
-						<!-- IF topicrow.reput.S_THANKS_REPUT_GRAPHIC -->
-						<span style="display: block; float: left; width: {topicrow.reput.THANKS_REPUT_GRAPHIC_WIDTH}; height: {topicrow.reput.THANKS_REPUT_HEIGHT}; background: URL({topicrow.reput.THANKS_REPUT_IMAGE_BACK});"><span style="display: block; height: {topicrow.reput.THANKS_REPUT_HEIGHT}; width: {topicrow.reput.TOPIC_REPUT}; background: URL({topicrow.reput.THANKS_REPUT_IMAGE});"></span></span>&nbsp;
-						<!-- ENDIF -->
-					{L_REPUT}:&nbsp;{topicrow.reput.TOPIC_REPUT}
-					</span>
-					<!-- ENDIF -->
-					<!-- END reput -->
+					<!-- IF topicrow.ATTACH_ICON_IMG -->{topicrow.ATTACH_ICON_IMG} <!-- ENDIF --><span class="topic-data">Started by {topicrow.TOPIC_AUTHOR_FULL}, {topicrow.FIRST_POST_TIME}</span>&nbsp;<!-- IF topicrow.PAGINATION --><strong class="pagination"><span>{topicrow.PAGINATION}</span></strong><!-- ENDIF -->
 				</dt>
-				<dd class="forum-stats text-right in-subforums"><!-- IF topicrow.REPLIES > 24 --><span class="label warning" style="color:#fff;">Popular</span> <!-- ENDIF -->{topicrow.REPLIES} {L_REPLIES}<br />{topicrow.VIEWS} {L_VIEWS}</dd>
-					<!-- BEGIN reput -->
-						<!-- IF topicrow.reput.S_THANKS_TOPIC_REPUT_VIEW and not S_IS_BOT  and topicrow.reput.S_THANKS_TOPIC_REPUT_VIEW_COLUMN -->		
-						<dd style="display: block; width: {topicrow.reput.THANKS_REPUT_GRAPHIC_WIDTH};">
-							<!-- IF  topicrow.reput.TOPIC_REPUT -->	
-							<span style="display: block;">{topicrow.reput.TOPIC_REPUT}
-								<!-- IF topicrow.reput.S_THANKS_REPUT_GRAPHIC -->
-								<span style="display: block; width: {topicrow.reput.THANKS_REPUT_GRAPHIC_WIDTH}; height: {topicrow.reput.THANKS_REPUT_HEIGHT}; background: URL({topicrow.reput.THANKS_REPUT_IMAGE_BACK});"><span style="display: block; height: {topicrow.reput.THANKS_REPUT_HEIGHT}; width: {topicrow.reput.TOPIC_REPUT}; background: URL({topicrow.reput.THANKS_REPUT_IMAGE});">&nbsp;</span></span>
-								<!-- ENDIF -->
-							</span><dfn>{L_REPUT}</dfn>	
-							<!-- ENDIF -->
-						</dd>				
-						<!-- ENDIF -->
-					<!-- END reput -->				
-				<dd class="lastpost<!-- BEGIN reput --><!-- IF topicrow.reput.S_THANKS_TOPIC_REPUT_VIEW_COLUMN and not S_IS_BOT --> lastpostthanks<!-- ENDIF --><!-- END reput -->" style="padding-left: 0px;"><!-- IF not S_IS_BOT --><a href="{forumrow.U_LAST_POST}" class="lastpost_img">{LAST_POST_IMG}</a> <!-- ENDIF -->{L_LAST_POST} {L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}
+				<dd class="forum-stats text-right in-subforums"><!-- IF topicrow.REPLIES > 24 --><span class="label warning" style="color:#fff;">Hot</span> <!-- ENDIF -->{topicrow.REPLIES} {L_REPLIES}<br />{topicrow.VIEWS} {L_VIEWS}</dd>
+				<dd class="lastpost" style="padding-left: 0px;"><!-- IF not S_IS_BOT --><a href="{forumrow.U_LAST_POST}" class="lastpost_img">{LAST_POST_IMG}</a> <!-- ENDIF -->{L_LAST_POST} {L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}
 					<br />{topicrow.LAST_POST_TIME}
 				</dd>
 			</dl>
 		</li>
-	<!-- ENDIF -->
 	<!-- IF topicrow.S_LAST_ROW -->
 			</ul>
 		</div>
@@ -209,7 +168,6 @@
 			<!-- IF NEXT_PAGE --><a href="{NEXT_PAGE}" class="right-box {S_CONTENT_FLOW_END}">{L_NEXT}</a><!-- ENDIF -->
 	<!-- IF not S_IS_BOT -->
 			<label>{L_DISPLAY_TOPICS}: {S_SELECT_SORT_DAYS}</label>
-			<!-- INCLUDE attributes.html -->
 			<label>{L_SORT_BY} {S_SELECT_SORT_KEY}</label>
 			<label>{S_SELECT_SORT_DIR} <input type="submit" name="sort" value="{L_GO}" class="btn small" /></label>
 	<!-- ENDIF -->
@@ -222,7 +180,7 @@
 	<div class="topic-actions">
 		<!-- IF not S_IS_BOT and S_DISPLAY_POST_INFO -->
 		<div class="buttons">
-			<a href="{U_POST_NEW_TOPIC}" title="<!-- IF S_IS_LOCKED -->{L_FORUM_LOCKED}<!-- ELSE -->{L_POST_TOPIC}<!-- ENDIF -->" class="btn small<!-- IF S_IS_LOCKED --> danger<!-- ENDIF -->" style="font-size: 1.1em !important;"><!--<!-- IF S_IS_LOCKED -->{L_FORUM_LOCKED}<!-- ELSE -->{L_POST_TOPIC}<!-- ENDIF -->-->Nuevo tema</a>
+			<a href="{U_POST_NEW_TOPIC}" title="<!-- IF S_IS_LOCKED -->{L_FORUM_LOCKED}<!-- ELSE -->{L_POST_TOPIC}<!-- ENDIF -->" class="btn small<!-- IF S_IS_LOCKED --> danger<!-- ENDIF -->" style="font-size: 1.1em !important;"><!-- IF S_IS_LOCKED -->{L_FORUM_LOCKED}<!-- ELSE -->{L_POST_TOPIC}<!-- ENDIF --></a>
 		</div>
 		<!-- ENDIF -->
 

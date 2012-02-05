@@ -34,15 +34,10 @@
 			<ul class="topiclist cplist">
 
 		<!-- BEGIN postrow -->
-
-		<!-- IF postrow.S_DELETED_TOPIC -->
-			<li><p class="notopics">{L_DELETED_TOPIC}</p></li>
-		<!-- ELSE -->
-
 		<li class="row<!-- IF postrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
 			<dl>
 				<dt>
-					<!-- IF postrow.S_TOPIC_ATTR -->{postrow.TOPIC_ATTRIBUTE} <!-- ENDIF --><a href="{postrow.U_VIEW_DETAILS}" class="topictitle">{postrow.POST_SUBJECT}</a> <br />
+					<a href="{postrow.U_VIEW_DETAILS}" class="topictitle">{postrow.POST_SUBJECT}</a> <br />
 					<span>{L_POSTED} {L_POST_BY_AUTHOR} {postrow.POST_AUTHOR_FULL} &raquo; {postrow.POST_TIME}</span>
 				</dt>
 				<dd class="moderation">
@@ -56,7 +51,6 @@
 		 		<dd class="mark"><input type="checkbox" name="post_id_list[]" value="{postrow.POST_ID}" /></dd>
 			</dl>
 		</li>
-		<!-- ENDIF -->
 		<!-- END postrow -->
 		</ul>
 

@@ -47,33 +47,19 @@
 		<ul class="topiclist topics">
 
 		<!-- BEGIN searchresults -->
-		<!-- IF searchresults.S_DELETED -->
-			<li class="row<!-- IF searchresults.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- IF searchresults.S_POST_ANNOUNCE --> announce<!-- ENDIF --><!-- IF searchresults.S_POST_STICKY --> sticky<!-- ENDIF --><!-- IF searchresults.S_TOPIC_REPORTED --> reported<!-- ENDIF --> deleted_topic">
-				<dl class="icon" style="background-image: url({searchresults.TOPIC_FOLDER_IMG_SRC}); background-repeat: no-repeat;">
-					<dt style="<!-- IF searchresults.TOPIC_ICON_IMG and S_TOPIC_ICONS -->background-image: url({T_ICONS_PATH}{searchresults.TOPIC_ICON_IMG}); background-repeat: no-repeat;<!-- ENDIF -->" title="{searchresults.TOPIC_FOLDER_IMG_ALT}"><!-- IF searchresults.S_UNREAD_TOPIC --><a href="{searchresults.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><a href="{searchresults.U_VIEW_TOPIC}" class="topictitle">{searchresults.TOPIC_TITLE}</a>
-						<!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED --><a href="{searchresults.U_MCP_QUEUE}">{searchresults.UNAPPROVED_IMG}</a> <!-- ENDIF -->
-						<!-- IF searchresults.S_TOPIC_REPORTED --><a href="{searchresults.U_MCP_REPORT}">{REPORTED_IMG}</a><!-- ENDIF --><br />
-						<!-- IF searchresults.PAGINATION --><strong class="pagination"><span>{searchresults.PAGINATION}</span></strong><!-- ENDIF -->
-						<!-- IF searchresults.ATTACH_ICON_IMG -->{searchresults.ATTACH_ICON_IMG} <!-- ENDIF -->
-						{searchresults.DELETED_MSG}
-					</dt>
-				</dl>
-			</li>
-		<!-- ELSE -->
 			<li class="row<!-- IF searchresults.S_ROW_COUNT is even --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- IF searchresults.S_UNREAD_TOPIC --> unread<!-- ENDIF -->">
 				<dl>					
-					<dt <!-- IF searchresults.TOPIC_ICON_IMG and S_TOPIC_ICONS --> style="background-image: url({T_ICONS_PATH}{searchresults.TOPIC_ICON_IMG}); background-repeat: no-repeat; background-position: 98% 50%;"<!-- ENDIF --> title="{searchresults.TOPIC_FOLDER_IMG_ALT}" class="internal<!-- IF searchresults.TOPIC_ICON_IMG and S_TOPIC_ICONS --> topic_icon<!-- ENDIF -->"><!-- IF searchresults.S_UNREAD_TOPIC --><a href="{searchresults.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><!-- IF searchresults.S_TOPIC_ATTR -->{searchresults.TOPIC_ATTRIBUTE} <!-- ENDIF --><a href="{searchresults.U_VIEW_TOPIC}" class="topictitle <!-- IF searchresults.TOPIC_ICON_IMG and S_TOPIC_ICONS --> topic_icon<!-- ENDIF -->">{searchresults.TOPIC_TITLE}</a> {searchresults.ATTACH_ICON_IMG}
+					<dt <!-- IF searchresults.TOPIC_ICON_IMG and S_TOPIC_ICONS --> style="background-image: url({T_ICONS_PATH}{searchresults.TOPIC_ICON_IMG}); background-repeat: no-repeat; background-position: 98% 50%;"<!-- ENDIF --> title="{searchresults.TOPIC_FOLDER_IMG_ALT}" class="internal<!-- IF searchresults.TOPIC_ICON_IMG and S_TOPIC_ICONS --> topic_icon<!-- ENDIF -->"><!-- IF searchresults.S_UNREAD_TOPIC --><a href="{searchresults.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><a href="{searchresults.U_VIEW_TOPIC}" class="topictitle <!-- IF searchresults.TOPIC_ICON_IMG and S_TOPIC_ICONS --> topic_icon<!-- ENDIF -->">{searchresults.TOPIC_TITLE}</a> {searchresults.ATTACH_ICON_IMG}
 					<!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED --><a href="{searchresults.U_MCP_QUEUE}">{searchresults.UNAPPROVED_IMG}</a> <!-- ENDIF -->
 					<!-- IF searchresults.S_TOPIC_REPORTED --><a href="{searchresults.U_MCP_REPORT}">{REPORTED_IMG}</a><!-- ENDIF --><br />
-					<span class="topic-data">Iniciado por {searchresults.TOPIC_AUTHOR_FULL}, {searchresults.FIRST_POST_TIME}</span>&nbsp;<!-- IF searchresults.PAGINATION --><strong class="pagination"><span>{searchresults.PAGINATION}</span></strong><!-- ENDIF -->
+					<span class="topic-data">Started by {searchresults.TOPIC_AUTHOR_FULL}, {searchresults.FIRST_POST_TIME}</span>&nbsp;<!-- IF searchresults.PAGINATION --><strong class="pagination"><span>{searchresults.PAGINATION}</span></strong><!-- ENDIF -->
 					<!-- IF not searchresults.S_TOPIC_GLOBAL -->{L_IN} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a><!-- ELSE --> ({L_GLOBAL})<!-- ENDIF -->
-					<dd class="forum-stats text-right in-subforums"><!-- IF searchresults.TOPIC_REPLIES > 24 --><span class="label warning" style="color:#fff;">Popular</span> <!-- ENDIF -->{searchresults.TOPIC_REPLIES} {L_REPLIES}<br />{searchresults.TOPIC_VIEWS} {L_VIEWS}</dd>
+					<dd class="forum-stats text-right in-subforums"><!-- IF searchresults.TOPIC_REPLIES > 24 --><span class="label warning" style="color:#fff;">Hot</span> <!-- ENDIF -->{searchresults.TOPIC_REPLIES} {L_REPLIES}<br />{searchresults.TOPIC_VIEWS} {L_VIEWS}</dd>
 					<dd class="lastpost" style="padding-left: 0px;"><!-- IF not S_IS_BOT --><a href="{forumrow.U_LAST_POST}" class="lastpost_img">{LAST_POST_IMG}</a> <!-- ENDIF -->{L_LAST_POST} {L_POST_BY_AUTHOR} {searchresults.LAST_POST_AUTHOR_FULL}
 						<br />{searchresults.LAST_POST_TIME}
 					</dd>
 				</dl>
 			</li>
-		<!-- ENDIF -->
 		<!-- END searchresults -->
 		</ul>
 
@@ -90,7 +76,7 @@
 <!-- ELSE -->
 
 	<!-- BEGIN searchresults -->
-		<div class="search post <!-- IF searchresults.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF --><!-- IF searchresults.S_POST_REPORTED --> reported<!-- ENDIF --><!-- IF searchresults.S_DELETED --> deleted_post<!-- ENDIF -->">
+		<div class="search post <!-- IF searchresults.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF --><!-- IF searchresults.S_POST_REPORTED --> reported<!-- ENDIF -->">
 			<div class="inner"><span class="corners-top"><span></span></span>
 
 	<!-- IF searchresults.S_IGNORE_POST -->
@@ -99,7 +85,7 @@
 		</div>
 	<!-- ELSE -->
 		<div class="postbody">
-			<h3><!-- IF searchresults.S_TOPIC_ATTR -->{searchresults.TOPIC_ATTRIBUTE} <!-- ENDIF --><a href="{searchresults.U_VIEW_POST}">{searchresults.POST_SUBJECT}</a></h3>
+			<h3><a href="{searchresults.U_VIEW_POST}">{searchresults.POST_SUBJECT}</a></h3>
 			<div class="content">{searchresults.MESSAGE}</div>
 		</div>
 
